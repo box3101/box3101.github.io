@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "사용자로부터 0 ~ 99 사이의 숫자를 하나 입력받아서, 위의 절차를 몇번 반복해야 처음 숫자가 도출되는지 그 반복횟수를 출력"
+title: "반복횟수 출력"
 date: 2023-02-22 18:43:32 +0900
 author: Jeffrey
 categories: Algorithm
