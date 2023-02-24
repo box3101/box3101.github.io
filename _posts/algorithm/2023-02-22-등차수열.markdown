@@ -47,3 +47,25 @@ if (배열값비교함수(배열)) console.log("한수입니다.");
 ```jsx
 else console.log("한수가 아닙니다.")
 ```
+
+결과 코드
+
+```jsx
+let 세자리정수 = prompt("3자리 이상의 정수를 입력하세요");
+let 배열 = [];
+
+for (let i = 0; i < 세자리정수.length - 1; i++) {
+  let 결과 = 세자리정수.substr(i + 1, 1) - 세자리정수.substr(i, 1);
+  배열.push(결과);
+}
+
+function 배열값비교함수(배열) {
+  for (let i = 0; i < 배열.length - 1; i++) {
+    if (배열[i] !== 배열[i + 1]) return false;
+  }
+  return true;
+}
+
+if (배열값비교함수(배열)) console.log("한수입니다.");
+else console.log("한수가 아닙니다.");
+```

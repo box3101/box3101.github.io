@@ -1,0 +1,9 @@
+---
+layout: post
+title: "FunctionType"
+date: 2023-02-22 17:53:32 +0900
+author: Jeffrey
+categories: JavaScript(Es6)
+---
+
+## 함수
