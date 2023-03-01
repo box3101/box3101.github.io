@@ -1,0 +1,20 @@
+{
+  "name": "number-baseball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "vue-loader": "^15.10.1",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
