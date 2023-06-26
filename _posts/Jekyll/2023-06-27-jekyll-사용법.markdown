@@ -1,0 +1,26 @@
+---
+layout: post
+title: jekyll_사용법
+subtitle: A awesome static site generator.
+author: Jeffrey
+categories: Jekyll
+---
+
+## Jekyll 설치
+
+#### 1. Jekyll 설치
+```jsx
+gem install jekyll
+```  
+#### 2. 필요한 gem들을 설치
+```jsx
+bundle install
+```
+#### 3. Jekyll 실행
+```jsx
+jekyll serve
+```
+#### 4. Jekyll build
+```jsx
+bundle exec jekyll build
+```

@@ -52,3 +52,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+future: false
+show_drafts: false
+limit_posts: 10
+plugins: [jekyll-feed]
