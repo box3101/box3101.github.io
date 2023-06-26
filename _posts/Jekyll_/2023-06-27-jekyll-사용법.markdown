@@ -22,7 +22,7 @@ jekyll serve
 ```
 #### 4. Jekyll build
 ```jsx
-bundle exec jekyll build
+jekyll build
 ```
 #### 5. git push
 ```jsx
