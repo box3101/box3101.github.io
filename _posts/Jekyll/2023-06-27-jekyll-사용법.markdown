@@ -3,7 +3,7 @@ layout: post
 title: jekyll_사용법
 # subtitle: A awesome static site generator.
 author: Jeffrey
-categories: Jekyll_
+categories: Jekyll
 ---
 
 ## Jekyll 설치
