@@ -11,21 +11,21 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="localStorage 에 임시 저장 방법" />
 <meta property="og:description" content="localStorage 에 임시 저장 방법" />
-<link rel="canonical" href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" />
-<meta property="og:url" content="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" />
+<link rel="canonical" href="http://localhost:4000/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" />
+<meta property="og:url" content="http://localhost:4000/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" />
 <meta property="og:site_name" content="LEECHANYONG" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-10T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="4.컴포넌트 할 일 삭제 기능 구현" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeffrey"},"dateModified":"2023-03-10T00:00:00+09:00","datePublished":"2023-03-10T00:00:00+09:00","description":"localStorage 에 임시 저장 방법","headline":"4.컴포넌트 할 일 삭제 기능 구현","mainEntityOfPage":{"@type":"WebPage","@id":"/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html"},"url":"/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeffrey"},"dateModified":"2023-03-10T00:00:00+09:00","datePublished":"2023-03-10T00:00:00+09:00","description":"localStorage 에 임시 저장 방법","headline":"4.컴포넌트 할 일 삭제 기능 구현","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html"},"url":"http://localhost:4000/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="icon" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="LEECHANYONG" /><link rel="stylesheet"
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LEECHANYONG" /><link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
@@ -918,7 +918,7 @@ input:focus <span class="si">{</span>
 <div class="post-nav"><a class="previous" href="/todolist(vue.js)/2023/03/10/TodoInput-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%A0%80%EC%9E%A5.html" title="2.컴포넌트의 할 일 저장 기능 구현">2.컴포넌트의 할 일 저장 기능 구현...</a><a class="next" href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%99%84%EB%A3%8C-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84.html" title="5.컴포넌트의 할 일 완료 기능 구현">5.컴포넌트의 할 일 완료 기능 구현...</a></div><div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/vue.js/2023/03/01/v-for.html" title="5.컴포넌트의 할 일 완료 기능 구현">v-for</a></li><li><a class="post-link" href="/todolist(vue.js)/2023/03/09/%EB%B7%B0-CLI%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.html" title="5.컴포넌트의 할 일 완료 기능 구현">뷰 CLI로 프로젝트 생성하기</a></li><li><a class="post-link" href="/jekyll/2023/06/27/jekyll-%EC%82%AC%EC%9A%A9%EB%B2%95.html" title="5.컴포넌트의 할 일 완료 기능 구현">jekyll_사용법</a></li><li><a class="post-link" href="/vue.js/2023/03/01/this.html" title="5.컴포넌트의 할 일 완료 기능 구현">vue에서 methods의 this는?</a></li></ul>
+        <li><a class="post-link" href="/todolist(vue.js)/2023/03/10/TodoInput-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%A0%80%EC%9E%A5.html" title="5.컴포넌트의 할 일 완료 기능 구현">2.컴포넌트의 할 일 저장 기능 구현</a></li><li><a class="post-link" href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%99%84%EB%A3%8C-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84.html" title="5.컴포넌트의 할 일 완료 기능 구현">5.컴포넌트의 할 일 완료 기능 구현</a></li><li><a class="post-link" href="/vue.js/2023/03/01/v-model.html" title="5.컴포넌트의 할 일 완료 기능 구현">v-model</a></li><li><a class="post-link" href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" title="5.컴포넌트의 할 일 완료 기능 구현">4.컴포넌트 할 일 삭제 기능 구현</a></li></ul>
     </div><div class="post-comments"></div></section>
 </div>
 

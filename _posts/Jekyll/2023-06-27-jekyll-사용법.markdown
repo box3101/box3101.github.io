@@ -2,6 +2,7 @@
 layout: post
 title: jekyll_사용법
 # subtitle: A awesome static site generator.
+ate: 2023-06-27 18:43:32 +0900
 author: Jeffrey
 categories: Jekyll
 ---
