@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "반복횟수 출력"
+title: "반복횟수 출력1"
 date: 2023-02-22 18:43:32 +0900
 author: Jeffrey
 categories: Algorithm
