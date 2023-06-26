@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-06-27T01:32:53+09:00</updated><id>/feed.xml</id><title type="html">LEECHANYONG</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">jekyll_사용법</title><link href="/jekyll_/2023/06/27/jekyll-%EC%82%AC%EC%9A%A9%EB%B2%95.html" rel="alternate" type="text/html" title="jekyll_사용법" /><published>2023-06-27T00:00:00+09:00</published><updated>2023-06-27T00:00:00+09:00</updated><id>/jekyll_/2023/06/27/jekyll-%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="/jekyll_/2023/06/27/jekyll-%EC%82%AC%EC%9A%A9%EB%B2%95.html"><![CDATA[<h2 id="jekyll-설치">Jekyll 설치</h2>
+
+<h4 id="1-jekyll-설치">1. Jekyll 설치</h4>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gem</span> <span class="nx">install</span> <span class="nx">jekyll</span>
+</code></pre></div></div>
+<h4 id="2-필요한-gem들을-설치">2. 필요한 gem들을 설치</h4>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">bundle</span> <span class="nx">install</span>
+</code></pre></div></div>
+<h4 id="3-jekyll-실행">3. Jekyll 실행</h4>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jekyll</span> <span class="nx">serve</span>
+</code></pre></div></div>
+<h4 id="4-jekyll-build">4. Jekyll build</h4>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">jekyll</span> <span class="nx">build</span>
+</code></pre></div></div>
+<h4 id="5-git-push">5. git push</h4>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">git</span> <span class="nx">add</span> <span class="p">.</span>
+<span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="dl">"</span><span class="s2">메시지</span><span class="dl">"</span>
+<span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="Jekyll_" /><summary type="html"><![CDATA[Jekyll 설치]]></summary></entry><entry><title type="html">3.TodoList 컴포넌트의 할 일 목록 표시 기능 구현</title><link href="/todolist(vue.js)/2023/03/10/2.html" rel="alternate" type="text/html" title="3.TodoList 컴포넌트의 할 일 목록 표시 기능 구현" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/10/2</id><content type="html" xml:base="/todolist(vue.js)/2023/03/10/2.html"><![CDATA[<h2 id="로컬-스테이지서-꺼내온-데이터를-담을-변수-생성">로컬 스테이지서 꺼내온 데이터를 담을 변수 생성</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">todoItems</span><span class="p">:</span> <span class="p">[]</span> <span class="c1">// 담을 배열 생</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="라이플-사이클-실행">라이플 사이클 실행</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//인스턴스가 생성되는 시점 한번 실행되는 라이프사이클</span>
+  <span class="nx">created</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">loglevel:webpack-dev-server</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">loglevel:webpack-dev-server</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">todoItems</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span> <span class="c1">// 로컬스테이지 키,값을 배열에 담는다.</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="전체코드">전체코드</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="err">!--</span> <span class="na">todoItems</span><span class="err">배열</span> <span class="err">안에서</span> <span class="na">todoItem</span><span class="err">숫자만큼</span> <span class="err">반복</span> <span class="err">--</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="p">=</span><span class="s">"todoItem in todoItems"</span> <span class="na">v-bind</span><span class="err">:</span><span class="na">key</span><span class="p">=</span><span class="s">"todoItem"</span> <span class="na">class</span><span class="p">=</span><span class="s">"shadow"</span><span class="p">&gt;</span>
+        
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-on</span><span class="err">:</span><span class="na">click</span><span class="p">=</span><span class="s">"removeTodo"</span><span class="p">&gt;</span>delete<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+export default <span class="si">{</span>
+
+  <span class="c1">// 로컬스테이지 꺼내온 데이터를 담을 변수</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">todoItems</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="c1">//인스턴스가 생성되는 시점 한번 실행되는 라이프사이클</span>
+  <span class="nx">created</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">loglevel:webpack-dev-server</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nf">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">loglevel:webpack-dev-server</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">todoItems</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nf">key</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+        <span class="p">}</span>
+      <span class="si">}</span>
+    }
+  },
+}
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[로컬 스테이지서 꺼내온 데이터를 담을 변수 생성]]></summary></entry><entry><title type="html">5.컴포넌트의 할 일 완료 기능 구현</title><link href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%99%84%EB%A3%8C-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84.html" rel="alternate" type="text/html" title="5.컴포넌트의 할 일 완료 기능 구현" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%ED%95%A0%20%EC%9D%BC%20%EC%99%84%EB%A3%8C%20%EA%B8%B0%EB%8A%A5%20%EA%B5%AC%ED%98%84</id><content type="html" xml:base="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%99%84%EB%A3%8C-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84.html"><![CDATA[]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">4.컴포넌트 할 일 삭제 기능 구현</title><link href="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html" rel="alternate" type="text/html" title="4.컴포넌트 할 일 삭제 기능 구현" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%ED%95%A0%20%EC%9D%BC%20%EC%82%AD%EC%A0%9C%20%EA%B8%B0%EB%8A%A5</id><content type="html" xml:base="/todolist(vue.js)/2023/03/10/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%95%A0-%EC%9D%BC-%EC%82%AD%EC%A0%9C-%EA%B8%B0%EB%8A%A5.html"><![CDATA[<h2 id="localstorage-에-임시-저장-방법">localStorage 에 임시 저장 방법</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">addTodo</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this : 똑같은 인스턴스를 가르킴</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="c1">// 저장하는 로직 localStorage.setItem(키,값);</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9673158b-88f5-4393-9321-3bc4e25da076/Untitled.png" alt="Untitled" /></p>
+
+<h2 id="전체코드">전체코드</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="p">=</span><span class="s">"inputBox shadow"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="err">!--</span> <span class="na">v-model</span> <span class="na">input</span><span class="err">에</span> <span class="err">입력한</span> <span class="err">텍스트</span> <span class="err">값을</span> <span class="err">인스턴스안에</span> <span class="err">매핑하는</span> <span class="err">역할--</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="p">=</span><span class="s">"text"</span> <span class="na">v-model</span><span class="p">=</span><span class="s">"newTodoItem"</span> <span class="na">v-on</span><span class="err">:</span><span class="na">keyup</span><span class="err">.</span><span class="na">enter</span><span class="p">=</span><span class="s">"addTodo"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="err">!--</span> <span class="na">plus</span> <span class="err">버튼을</span> <span class="err">누를때마다</span> <span class="na">addTodo</span> <span class="err">메서드</span> <span class="err">실행</span> <span class="err">--</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="p">=</span><span class="s">"addContainer"</span> <span class="na">v-on</span><span class="err">:</span><span class="na">click</span><span class="p">=</span><span class="s">"addTodo"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="p">=</span><span class="s">"fas fa-plus addBtn"</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+export default <span class="si">{</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">newTodoItem</span><span class="p">:</span> <span class="dl">""</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// localStorage 추가하는 함수</span>
+    <span class="nl">addTodo</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this : 똑같은 인스턴스를 가르킴</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="c1">// 저장하는 로직 localStorage.setItem(키,값);</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nf">clearInput</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="c1">// 인풋텍스트를 지우는 함수</span>
+    <span class="nx">clearInput</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="si">}</span>
+}
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+input:focus <span class="si">{</span>
+  <span class="nx">outline</span><span class="p">:</span> <span class="nx">none</span><span class="p">;</span>
+<span class="si">}</span>
+
+.inputBox <span class="si">{</span>
+  <span class="nx">display</span><span class="p">:</span> <span class="nx">flex</span><span class="p">;</span>
+  <span class="nx">align</span><span class="o">-</span><span class="nx">items</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="mi">50</span><span class="nx">px</span><span class="p">;</span>
+  <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="p">:</span> <span class="mi">50</span><span class="nx">px</span><span class="p">;</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">5</span><span class="nx">px</span><span class="p">;</span>
+<span class="si">}</span>
+
+.inputBox input <span class="si">{</span>
+  <span class="nx">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nf">calc</span><span class="p">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">-</span> <span class="mi">3</span><span class="nx">rem</span><span class="p">);</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">style</span><span class="p">:</span> <span class="nx">none</span><span class="p">;</span>
+  <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="p">:</span> <span class="mf">0.9</span><span class="nx">rem</span><span class="p">;</span>
+<span class="si">}</span>
+
+.addContainer <span class="si">{</span>
+  <span class="nx">background</span><span class="p">:</span> <span class="nx">linear</span><span class="o">-</span><span class="nf">gradient</span><span class="p">(</span><span class="nx">to</span> <span class="nx">right</span><span class="p">,</span> <span class="err">#</span><span class="mi">6478</span><span class="nx">FB</span><span class="p">,</span> <span class="err">#</span><span class="mi">8763</span><span class="nx">F8</span><span class="p">);</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nx">block</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="mi">3</span><span class="nx">rem</span><span class="p">;</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">0</span><span class="p">;</span>
+<span class="si">}</span>
+
+.addBtn <span class="si">{</span>
+  <span class="nx">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="p">:</span> <span class="nx">middle</span><span class="p">;</span>
+<span class="si">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[localStorage 에 임시 저장 방법]]></summary></entry><entry><title type="html">2.컴포넌트의 할 일 저장 기능 구현</title><link href="/todolist(vue.js)/2023/03/10/TodoInput-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%A0%80%EC%9E%A5.html" rel="alternate" type="text/html" title="2.컴포넌트의 할 일 저장 기능 구현" /><published>2023-03-10T00:00:00+09:00</published><updated>2023-03-10T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/10/TodoInput%20%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98%20%ED%95%A0%20%EC%9D%BC%20%EC%A0%80%EC%9E%A5</id><content type="html" xml:base="/todolist(vue.js)/2023/03/10/TodoInput-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%ED%95%A0-%EC%9D%BC-%EC%A0%80%EC%9E%A5.html"><![CDATA[<h2 id="localstorage-에-임시-저장-방법">localStorage 에 임시 저장 방법</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">addTodo</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this : 똑같은 인스턴스를 가르킴</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="c1">// 저장하는 로직 localStorage.setItem(키,값);</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9673158b-88f5-4393-9321-3bc4e25da076/Untitled.png" alt="Untitled" /></p>
+
+<h2 id="전체코드">전체코드</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="p">=</span><span class="s">"inputBox shadow"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="err">!--</span> <span class="na">v-model</span> <span class="na">input</span><span class="err">에</span> <span class="err">입력한</span> <span class="err">텍스트</span> <span class="err">값을</span> <span class="err">인스턴스안에</span> <span class="err">매핑하는</span> <span class="err">역할--</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="p">=</span><span class="s">"text"</span> <span class="na">v-model</span><span class="p">=</span><span class="s">"newTodoItem"</span> <span class="na">v-on</span><span class="err">:</span><span class="na">keyup</span><span class="err">.</span><span class="na">enter</span><span class="p">=</span><span class="s">"addTodo"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="err">!--</span> <span class="na">plus</span> <span class="err">버튼을</span> <span class="err">누를때마다</span> <span class="na">addTodo</span> <span class="err">메서드</span> <span class="err">실행</span> <span class="err">--</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="p">=</span><span class="s">"addContainer"</span> <span class="na">v-on</span><span class="err">:</span><span class="na">click</span><span class="p">=</span><span class="s">"addTodo"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="p">=</span><span class="s">"fas fa-plus addBtn"</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+export default <span class="si">{</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">newTodoItem</span><span class="p">:</span> <span class="dl">""</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// localStorage 추가하는 함수</span>
+    <span class="nl">addTodo</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// this : 똑같은 인스턴스를 가르킴</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="c1">// 저장하는 로직 localStorage.setItem(키,값);</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nf">clearInput</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="c1">// 인풋텍스트를 지우는 함수</span>
+    <span class="nx">clearInput</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">newTodoItem</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="si">}</span>
+}
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+input:focus <span class="si">{</span>
+  <span class="nx">outline</span><span class="p">:</span> <span class="nx">none</span><span class="p">;</span>
+<span class="si">}</span>
+
+.inputBox <span class="si">{</span>
+  <span class="nx">display</span><span class="p">:</span> <span class="nx">flex</span><span class="p">;</span>
+  <span class="nx">align</span><span class="o">-</span><span class="nx">items</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="mi">50</span><span class="nx">px</span><span class="p">;</span>
+  <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="p">:</span> <span class="mi">50</span><span class="nx">px</span><span class="p">;</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">5</span><span class="nx">px</span><span class="p">;</span>
+<span class="si">}</span>
+
+.inputBox input <span class="si">{</span>
+  <span class="nx">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nf">calc</span><span class="p">(</span><span class="mi">100</span><span class="o">%</span> <span class="o">-</span> <span class="mi">3</span><span class="nx">rem</span><span class="p">);</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">style</span><span class="p">:</span> <span class="nx">none</span><span class="p">;</span>
+  <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="p">:</span> <span class="mf">0.9</span><span class="nx">rem</span><span class="p">;</span>
+<span class="si">}</span>
+
+.addContainer <span class="si">{</span>
+  <span class="nx">background</span><span class="p">:</span> <span class="nx">linear</span><span class="o">-</span><span class="nf">gradient</span><span class="p">(</span><span class="nx">to</span> <span class="nx">right</span><span class="p">,</span> <span class="err">#</span><span class="mi">6478</span><span class="nx">FB</span><span class="p">,</span> <span class="err">#</span><span class="mi">8763</span><span class="nx">F8</span><span class="p">);</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nx">block</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="mi">3</span><span class="nx">rem</span><span class="p">;</span>
+  <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">5</span><span class="nx">px</span> <span class="mi">0</span><span class="p">;</span>
+<span class="si">}</span>
+
+.addBtn <span class="si">{</span>
+  <span class="nx">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="p">:</span> <span class="nx">middle</span><span class="p">;</span>
+<span class="si">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[localStorage 에 임시 저장 방법]]></summary></entry><entry><title type="html">뷰 CLI로 프로젝트 생성하기</title><link href="/todolist(vue.js)/2023/03/09/%EB%B7%B0-CLI%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.html" rel="alternate" type="text/html" title="뷰 CLI로 프로젝트 생성하기" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/09/%EB%B7%B0%20CLI%EB%A1%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0</id><content type="html" xml:base="/todolist(vue.js)/2023/03/09/%EB%B7%B0-CLI%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0.html"><![CDATA[<h1 id="1-cli-설치">1. Cli 설치</h1>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="p">@</span><span class="nd">vue</span><span class="sr">/cl</span><span class="err">i
+</span></code></pre></div></div>
+
+<p>-<strong>기본 vue 개발 환경을 설정해주는 도구</strong></p>
+
+<p>-현재 vue 버전 확인</p>
+
+<p><strong>vue –version</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">vue</span><span class="sr">/cli 5.0.</span><span class="err">8
+</span></code></pre></div></div>
+
+<h1 id="2-프로젝스-생성">2. 프로젝스 생성</h1>
+
+<p><strong>[뷰 프로젝트를 생성할 때 선택 옵션]</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="nx">vue</span> <span class="nx">init</span> <span class="nx">webpack</span><span class="o">-</span><span class="nx">simple</span> <span class="nx">vue</span><span class="o">-</span><span class="nx">todo</span>
+</code></pre></div></div>
+
+<p>-작성</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Target</span> <span class="nx">directory</span> <span class="nx">exists</span><span class="p">.</span> <span class="nx">Continue</span><span class="p">?</span> <span class="nx">Yes</span>
+<span class="p">?</span> <span class="nx">Project</span> <span class="nx">name</span> <span class="nx">vue</span><span class="o">-</span><span class="nx">todo</span>
+<span class="p">?</span> <span class="nx">Project</span> <span class="nx">description</span> <span class="nx">A</span> <span class="nx">vue</span><span class="p">.</span><span class="nx">js</span> <span class="nx">project</span>
+<span class="p">?</span> <span class="nx">Author</span> <span class="nx">box4101</span><span class="p">@</span><span class="nd">nate</span><span class="p">.</span><span class="nx">com</span>
+<span class="p">?</span> <span class="nx">License</span> <span class="nx">Mit</span>
+<span class="p">?</span> <span class="nx">Use</span> <span class="nx">sass</span><span class="p">?</span> <span class="nx">No</span>
+</code></pre></div></div>
+
+<p>-실행</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">run</span> <span class="nx">dev</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[1. Cli 설치]]></summary></entry><entry><title type="html">1.컴포넌트 생성 및 등록하기</title><link href="/todolist(vue.js)/2023/03/09/1.-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0.html" rel="alternate" type="text/html" title="1.컴포넌트 생성 및 등록하기" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>/todolist(vue.js)/2023/03/09/1.%20%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0</id><content type="html" xml:base="/todolist(vue.js)/2023/03/09/1.-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0.html"><![CDATA[<h2 id="1컴포넌트-가져옴">1.컴포넌트 가져옴,</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TodeHeader.vue에 내용을 가져와서 TodoHeader에 담았다는 뜻</span>
+<span class="k">import</span> <span class="nx">TodoHeader</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./components/TodoHeader.vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">TodoInput</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./components/TodoInput.vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">TodoList</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./components/TodoList.vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">TodoFooter</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./components/TodoFooter.vue</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="2컴포넌트-생성">2.컴포넌트 생성</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// 변수, 함수, 오브젝트, 클래스 등을 전달할 수 있는 명령어</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// 컴포넌트 태그명 : 컴포넌트 내용</span>
+    <span class="na">TodeHeader</span><span class="p">:</span> <span class="nx">TodoHeader</span><span class="p">,</span> <span class="c1">// TodoHeader 컴포넌트 내용을 들고와서 컴포넌트 태그명에 담음</span>
+    <span class="na">TodeInput</span><span class="p">:</span> <span class="nx">TodoInput</span><span class="p">,</span>
+    <span class="na">TodeList</span><span class="p">:</span> <span class="nx">TodoList</span><span class="p">,</span>
+    <span class="na">TodeFooter</span><span class="p">:</span> <span class="nx">TodoFooter</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="3컴포넌트-등록">3.컴포넌트 등록</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="p">=</span><span class="s">"app"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeHeader</span><span class="p">&gt;&lt;/</span><span class="nc">TodeHeader</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeInput</span><span class="p">&gt;&lt;/</span><span class="nc">TodeInput</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeList</span><span class="p">&gt;&lt;/</span><span class="nc">TodeList</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeFooter</span><span class="p">&gt;&lt;/</span><span class="nc">TodeFooter</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="전체코드">전체코드</h2>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="p">=</span><span class="s">"app"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeHeader</span><span class="p">&gt;&lt;/</span><span class="nc">TodeHeader</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeInput</span><span class="p">&gt;&lt;/</span><span class="nc">TodeInput</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeList</span><span class="p">&gt;&lt;/</span><span class="nc">TodeList</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">TodeFooter</span><span class="p">&gt;&lt;/</span><span class="nc">TodeFooter</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+// TodeHeader.vue에 내용을 가져와서 TodoHeader에 담았다는 뜻
+import TodoHeader from './components/TodoHeader.vue'
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
+import TodoFooter from './components/TodoFooter.vue'
+
+export default <span class="si">{</span> <span class="c1">// 변수, 함수, 오브젝트, 클래스 등을 전달할 수 있는 명령어</span>
+  <span class="nx">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// 컴포넌트 태그명 : 컴포넌트 내용</span>
+    <span class="dl">"</span><span class="s2">TodeHeader</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TodoHeader</span><span class="p">,</span> <span class="c1">// TodoHeader 컴포넌트 내용을 들고와서 컴포넌트 태그명에 담음</span>
+    <span class="dl">"</span><span class="s2">TodeInput</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TodoInput</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">TodeList</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TodoList</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">TodeFooter</span><span class="dl">"</span><span class="p">:</span> <span class="nx">TodoFooter</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="si">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div></div>]]></content><author><name>Jeffrey</name></author><category term="TodoList(Vue.js)" /><summary type="html"><![CDATA[1.컴포넌트 가져옴,]]></summary></entry><entry><title type="html">vue에서 methods의 this는?</title><link href="/vue.js/2023/03/01/this.html" rel="alternate" type="text/html" title="vue에서 methods의 this는?" /><published>2023-03-01T00:00:00+09:00</published><updated>2023-03-01T00:00:00+09:00</updated><id>/vue.js/2023/03/01/this</id><content type="html" xml:base="/vue.js/2023/03/01/this.html"><![CDATA[<p>Vue.js에서 <strong>methods 객체 내에서의</strong></p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">this</code></strong> 키워드는 <strong>Vue 인스턴스 자체</strong>를 가리킵니다.</p>
+
+<p>즉, methods 객체 내에서 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>를 사용하면 해당 <strong>Vue 인스턴스를 참조</strong>할 수 있습니다.</p>
+
+<p>예를 들어, 다음과 같은 Vue 인스턴스가 있다고 가정해보겠습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascriptCopy code
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  },
+  methods: {
+    logMessage: function() {
+      console.log(this.message);
+    }
+  }
+});
+
+</code></pre></div></div>
+
+<p>위 코드에서 <strong><code class="language-plaintext highlighter-rouge">logMessage</code></strong> 메소드 내에서 <strong><code class="language-plaintext highlighter-rouge">this.message</code></strong>는 해당 Vue 인스턴스의 <code class="language-plaintext highlighter-rouge">**message</code> 데이터 속성을 참조**합니다.</p>
+
+<p>즉, <strong><code class="language-plaintext highlighter-rouge">this</code></strong>는 <strong>Vue 인스턴스 자체를 가리키므로 <code class="language-plaintext highlighter-rouge">this.message</code>는 Vue 인스턴스의 <code class="language-plaintext highlighter-rouge">message</code> 데이터 속성을 참조</strong>할 수 있습니다.</p>
+
+<p>하지만, 일반적인 자바스크립트에서의 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>와 다르게, Vue.js에서의 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>는 호출 문맥(context)에 따라 다르게 동작할 수 있습니다.</p>
+
+<p>예를 들어, 일반적인 자바스크립트에서의 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>는 함수를 호출한 객체에 따라 동적으로 결정됩니다.</p>
+
+<p>하지만, Vue.js에서는 template에 직접 정의한 메소드 내에서 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>를 사용하면 Vue 인스턴스가 아니라, undefined가 되는 경우가 있습니다. 이런 경우에는 arrow function이나 <strong><code class="language-plaintext highlighter-rouge">.bind()</code></strong>를 사용하여 <strong><code class="language-plaintext highlighter-rouge">this</code></strong>의 값을 명시적으로 지정해주어야 합니다.</p>]]></content><author><name>Jeffrey</name></author><category term="Vue.js" /><summary type="html"><![CDATA[Vue.js에서 methods 객체 내에서의]]></summary></entry><entry><title type="html">v-model</title><link href="/vue.js/2023/03/01/v-model.html" rel="alternate" type="text/html" title="v-model" /><published>2023-03-01T00:00:00+09:00</published><updated>2023-03-01T00:00:00+09:00</updated><id>/vue.js/2023/03/01/v-model</id><content type="html" xml:base="/vue.js/2023/03/01/v-model.html"><![CDATA[<p>v-model은 Vue.js에서 제공하는 디렉티브 중 하나로, <strong>양방향 데이터 바인딩을 구현하는데 사용</strong>됩니다.</p>
+
+<p>이 디렉티브는 <strong>HTML 폼 요소나 컴포넌트의 props와 같은 모델에 데이터를 바인딩</strong>합니다.</p>
+
+<p>예를 들어, <strong><input /></strong> 요소에 <strong>v-model 디렉티브를 사용하면 입력 값이 변경될 때마다 Vue 인스턴스의 데이터 속성과 동기화</strong>됩니다. 즉, <strong>사용자가 입력한 값은 Vue 인스턴스의 데이터와 바로 반영</strong>되고, <strong>Vue 인스턴스의 데이터를 변경하면 입력 요소에도 그 값이 반영</strong>됩니다.</p>
+
+<p>v-model 디렉티브는 <strong>주로 폼 요소와 함께 사용</strong>되며, <strong>사용자의 입력에 따라 동적으로 화면을 갱신하는데 유용</strong>합니다.</p>]]></content><author><name>Jeffrey</name></author><category term="Vue.js" /><summary type="html"><![CDATA[v-model은 Vue.js에서 제공하는 디렉티브 중 하나로, 양방향 데이터 바인딩을 구현하는데 사용됩니다.]]></summary></entry><entry><title type="html">v-for</title><link href="/vue.js/2023/03/01/v-for.html" rel="alternate" type="text/html" title="v-for" /><published>2023-03-01T00:00:00+09:00</published><updated>2023-03-01T00:00:00+09:00</updated><id>/vue.js/2023/03/01/v-for</id><content type="html" xml:base="/vue.js/2023/03/01/v-for.html"><![CDATA[<p>v-for는 Vue.js에서 제공하는 디렉티브 중 하나로,</p>
+
+<p><strong>배열이나 객체와 같은 반복 가능한(iterable) 데이터를 이용하여 반복적으로 HTML 요소를 렌더링하는데 사용</strong>됩니다.</p>
+
+<p>v-for 디렉티브는 다음과 같은 문법으로 사용합니다:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-for</span><span class="p">=</span><span class="s">"(item, index) in items"</span> <span class="err">:</span><span class="na">key</span><span class="p">=</span><span class="s">"item.id"</span><span class="p">&gt;</span>
+  번째 아이템: 
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>위의 코드에서</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">items</code></strong>는 <strong>반복 가능한 데이터(배열이나 객체)</strong>를 가리키며,</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">item</code></strong>은 <strong>반복 중인 데이터의 각 요소를 가리키는 변수</strong>입니다.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">index</code></strong>는 각 요소의 인덱스를 나타내는 변수입니다.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">:key</code></strong>는 Vue가 각 항목을 식별할 때 사용하는 <strong>유일한 식별자</strong>입니다.</p>
+
+<p>이렇게 <strong>v-for 디렉티브를 사용</strong>하면 반복 가능한 <strong>데이터의 각 요소를 순회하면서 HTML 요소를 생성</strong>할 수 있습니다.</p>
+
+<p><strong>생성된 HTML 요소는 Vue 인스턴스의 데이터와 연결되어 있으므로, 데이터가 변경되면 자동으로 갱신</strong>됩니다.</p>]]></content><author><name>Jeffrey</name></author><category term="Vue.js" /><summary type="html"><![CDATA[v-for는 Vue.js에서 제공하는 디렉티브 중 하나로,]]></summary></entry></feed>
